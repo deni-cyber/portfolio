@@ -1,0 +1,79 @@
+.column {
+    float: left;
+    width: 50%;
+    padding: 10px 10px;
+  }
+  
+  /* Remove extra left and right margins, due to padding in columns */
+  .row {
+    margin: 0 -5px;
+    display: flex;
+    justify-content: space-around;
+    }
+  
+  /* Clear floats after the columns */
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  
+  /* Style the counter cards */
+  .card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* this adds the "card" effect */
+    padding: 16px;
+    text-align: center;
+  }
+  
+  .card img{
+    width: 100%;
+  }
+
+  .overlay{
+    margin: 2px;
+    border-radius: 2px;
+  }
+  .overlay:hover{
+    background-color: rgba(0, 0, 0, 0.466);
+  }
+
+
+  .card-grid2 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    grid-gap: 10px;
+  }
+  
+  .card-grid-item2 {
+    background-color: white;
+    padding: 0px;
+    border-radius: 5px;
+    border: aqua solid 1px;
+    padding-bottom: 0px;
+    transition: transform 0.3s ease; /* Add smooth zoom transition */
+  }
+  .card-grid-item2:hover {
+    transform: scale(1.05); /* Scale up on hover */
+  }
+  .card-grid-item2 img{
+    border-radius: 5px;
+    max-width:160px;
+  }
+  
+  
+  /* Responsive columns - one column layout (vertical) on small screens */
+  @media screen and (min-width: 780px) {
+    .column {
+      width: 50%;
+      display: block;
+      margin-bottom: 20px;
+    }
+    .card-grid2 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    grid-gap: 20px;
+  }
+  
+  }
+
+  

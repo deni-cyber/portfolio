@@ -1,0 +1,131 @@
+{% extends "index.html" %}
+
+{% block title %}Deni- landing page{% endblock %}
+
+{% block content %}
+<div class="infodiv"  style="border-top: none;">
+    <div class="landpage card">
+        <!--<div class="box" id="animatedDiv">
+            <img src= "{{url_for('static', filename='/images/comp_vector.jpg')}}" >
+        </div>-->
+        <div id="container" style="background-color: rgba(9, 43, 43, 0.349);">
+            <div id="box" >
+                <h3>Hello world! Welcome to my portfolio;</h3>
+                <div class="typed-container">
+                    <p class="typed">I am <span style="color: white;">Denis</span>, an <span style="color: orangered;background-color: black;">Engineer <span style="color: aqua;">and a</span> Programmer</span>():</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <h2 style="text-align: center;">My Skills</h2>
+    <div class="container">
+        <div class="socials-grid">
+            <div  class="skills-card">
+                <p>
+                    I am versatile and proficient in <b><mark style="background-color: black; font-size: large; color: orangered;">C, C++, Python (Django & Flask), HTML, CSS, and JavaScript</mark></b>.
+                </p>
+            </div> 
+            <div class="" style="border: none; padding: 10px; text-align: center;">
+                <span class="icon-card2"><img src="{{url_for('static', filename='/images/c++.png')}}"></span>
+                <span class="icon-card2"><img src="{{url_for('static', filename='/images/python.jpg')}}"></span>
+                <span class="icon-card2"><img src="{{url_for('static', filename='/images/dj.png')}}"></span>
+                <span class="icon-card2"><img src="{{url_for('static', filename='/images/html.png')}}"></span>
+                <span class="icon-card2"><img src="{{url_for('static', filename='/images/flask.png')}}"></span>
+                <span class="icon-card2"><img src="{{url_for('static', filename='/images/c.png')}}"></span>
+                <!--<span class="icon-card2"><img src="{{url_for('static', filename='/images/arduino.jpg')}}"></span>-->
+            </div>
+
+        </div>
+    </div>
+       
+</div>
+<div class="card">
+    <div class="git-card">
+        <div>
+            <p class=""><img src="{{url_for('static', filename='/images/git.png')}}"></p>
+        </div>
+    </div>
+    deni-cyber
+</div>
+
+<div  class="row">
+    <div class="left-column">
+        <div class="card">
+            <h2>Selected Projects</h2>
+            <div class="card-grid">
+                {% for project in projects_list%}
+                    <div class="card-grid-item">
+                        <img src="{{project[4]}}" alt="project image">
+                        <h class="overlay">
+                            <div >
+                                <strong>{{project[1]}}</strong>
+                            </div>
+                        </h>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+<div class="infodiv">
+    <h3 style="text-align: center;">What Clients Have to Say</h3>
+    <div class="row">
+        <button class="display-left" onclick="plusDivs(-1)">&#10094;</button>
+            <div class="slidebox">
+                {% for testimonial in testimony_list%}
+                <div class="mySlides card" style="border: none;">
+                        <div class="text">"{{ testimonial[2]}}"</div>
+                        <p>-{{ testimonial[1]}}</p>
+                </div>
+                {%endfor%}
+            </div>
+        <button class="display-right" onclick="plusDivs(1)">&#10095;</button>
+    </div>
+</div>
+<div class="card" style="display: flex; justify-content: center;"> 
+    <div class="formdiv">
+        <p>Leave a Comment or a Complement</p>
+        <form action="{{url_for('testimony')}}" method="POST" style="border: none; width: 100%;">
+            <p><label> name </label>
+                <input type="text" name="name"></p>
+            <p><label>message</label></p>
+            <p><textarea name = "message" ></textarea></p>
+            <input type = "submit" value = "send" />
+        </form>
+    </div>  
+</div>
+
+
+<div class="container">
+    <div class="card left-column">
+        <div>
+            <h2>write to me</h2>
+            <div class="formdiv">
+                <form action="{{url_for('message')}}" method="POST">
+                    <p><label> name </label>
+                        <input type="text" name="username"></p>
+                    <p><label>email</label>
+                        <input type="email" name="useremail"></p>
+                    <p><label> subject </label>
+                        <input type="text" name="subject"></p>
+                    <p><label>message</label></p>
+                    <p><textarea name = "message" ></textarea></p>
+                    <input type = "submit" value = "send" />
+                </form>
+            </div>  
+        </div>
+    </div>
+    <div class="card right-column" style="margin-left: 5px;">
+        <h2 style="text-align: center;">Social Links</h2>
+            <div class=" icon-card"><img src="{{url_for('static', filename='/images/ig.jpg')}}">@denitechnologies</div>
+            <div class=" icon-card"><img src="{{url_for('static', filename='/images/fb.png')}}">denitechnologies</div>
+            <div class=" icon-card"><img src="{{url_for('static', filename='/images/phone.jpg')}}">+2547 9161-0129</div>
+            <div class=" icon-card"><img src="{{url_for('static', filename='/images/x.png')}}">@denitechnologies</div>
+            <div class=" icon-card"><img src="{{url_for('static', filename='/images/email.png')}}">denitechnologies@gmain.com</div>
+    </div>
+</div>
+
+
+
+
+{% endblock%}

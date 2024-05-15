@@ -1,0 +1,141 @@
+.container {
+  display: flex;
+  justify-content: space-between;
+  padding: 0px;
+  flex-direction: column;
+}
+
+.left-column, .right-column {
+  flex: 1;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+
+.card {
+  padding: 15px;
+  border-radius: 5px;
+  margin-bottom: 15px;
+  border: solid aqua 1px;
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-gap: 10px;
+  justify-content: space-around;
+}
+
+.card-grid-item {
+  background-color: white;
+  max-width: 200px;
+  max-height: 200px;
+  overflow: hidden;
+  padding: 0px;
+  border-radius: 5px;
+  border: aqua solid 1px;
+  padding-bottom: 0px;
+  transition: transform 0.3s ease; /* Add smooth zoom transition */
+}
+.card-grid-item:hover {
+  transform: scale(1.05); /* Scale up on hover */
+}
+.card-grid-item img{
+  border-radius: 5px;
+}
+.overlay {
+  position: absolute;
+  top: 0px;
+  width: 98%;
+  background-color: black; /* Semi-transparent black overlay */
+  color: aqua;
+  opacity: 0; /* Initially hidden */
+  transition: opacity 0.3s ease; /* Fade-in transition */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  border-radius: 5px;
+  margin-right: 15px;
+  transition: transform 0.3s ease-out;
+
+}
+
+.card-grid-item:hover .overlay {
+  opacity: 1; /* Show overlay on hover */
+  transform: scale(0.95);
+  border-left: solid aqua 5px;
+}
+
+
+/*----this animates the typing effect on the landing page----*/
+.typed-container{
+  display: inline-block;
+  background-color: rgba(0, 0, 0, 0.507);
+  padding: 1px;
+  border-radius: 5px;
+}
+
+.typed {
+  overflow: hidden;
+  white-space: nowrap;
+  color: aqua;
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: bold;
+  width: 0;
+  font-size: 12px;
+  animation: typing;
+  animation-duration: 3s;
+  animation-timing-function: steps(100, end);
+  animation-fill-mode: forwards;
+  border-right: 2px solid white;
+  animation: typing 1.5s steps(30, end) forwards, blinking 1s infinite;
+}
+
+.skills-card{ 
+  background-color: rgba(0, 0, 0, 0.322);
+  color: white; 
+  border-radius: 5px; 
+  padding: 5px; 
+  font-size: small;
+  text-align: left;
+}
+
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+@keyframes blinking {
+  0% {border-right-color: transparent}
+  50% {border-right-color: white}
+  100% {border-right-color: transparent}
+}
+
+@media (min-width: 768px) {
+  .container {
+      flex-direction: row; /* Revert to side-by-side layout on larger screens */
+      justify-content: space-between;
+  }
+
+  .left-column, .right-column {
+      flex: 1;
+  }
+  .typed{
+    font-size: larger;
+  }
+  .skills-card{ 
+    background-color: rgba(0, 0, 0, 0.322);
+    color: white; 
+    border-radius: 5px; 
+    padding: 5px; 
+    font-weight: bold;
+    font-family: 'Courier New', Courier, monospace;
+    text-align: justify;
+  }
+  
+  .card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    grid-gap: 10px;
+  }
+}

@@ -1,0 +1,34 @@
+{% extends "index.html" %}
+
+{% block title %}Deni- contacts{% endblock %}
+
+{% block content %}
+    <div  class="container">
+        <div class="card left-column" style="color: white; text-align: left; padding: 20px; border-top: none; text-wrap: wrap;">
+            <div class="socials-grid">
+                <card class=""><img src="{{url_for('static', filename='/images/email.png')}}">denitechnologies@gmain.com</card>
+                <card class=""><img src="{{url_for('static', filename='/images/ig.jpg')}}">@denitechnologies</card>
+                <card class=""><img src="{{url_for('static', filename='/images/fb.png')}}">denitechnologies</card>
+                <card class=""><img src="{{url_for('static', filename='/images/x.png')}}">@denitechnologies</card>
+                <card class=""><img src="{{url_for('static', filename='/images/phone.jpg')}}">+2547 9161-0129</card>
+                <card class=""><img src="{{url_for('static', filename='/images/git.png')}}">deni-cyber</card>
+            </div>
+        </div>
+        <div class="card right-column" style="border-top: none;">
+            <h2>write to me</h2>
+            <div class="formdiv" style="width: 50%;">
+                <form action="{{url_for('message')}}" method="POST">
+                    <p><label> name </label>
+                        <input type="text" name="username"></p>
+                    <p><label>email</label>
+                        <input type="email" name="useremail"></p>
+                    <p><label> subject </label>
+                        <input type="text" name="subject"></p>
+                    <p><label>message</label></p>
+                    <p><textarea name = "message"  style="width: 100%; height: 100px;"></textarea></p>
+                    <input type = "submit" value = "send" />
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}
