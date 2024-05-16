@@ -23,6 +23,23 @@
             </form>
         </div>
     </div>
+    <div  class="infodiv">
+        <h3 style="color: white; text-align: center;">create a new blog</h3>
+        <div class="formdiv">
+            <form action = "{{ url_for('add_blog')}}" method = "POST">
+                title<br>
+                <input type = "text" name = "title" /></br>
+                
+                outhor<br>
+                <input type = "text" name = "outhor" /><br>
+                
+                Description<br>
+                <textarea name = "description" ></textarea><br>
+                <input type = "submit" value = "submit" /><br>
+            </form>
+        </div>
+    </div>
+
     <div class="infodiv">
         <h3 style="color: white; text-align: center;">Uploaded projects</h3>
 
@@ -109,6 +126,36 @@
                         <td>{{testimony[1]}}</td>
                         <td>{{testimony[2]}}</td>
                         <td>{{testimony[3]}}</td>
+                        <td><input type="submit" value="delete"></td>
+                    </form>
+                </tr>
+                {% endfor %}
+            </table>                    
+        </div>
+    </div>
+
+    <div class="infodiv">
+        <h3 style="color: white; text-align: center;">blogs</h3>
+        <div>               
+            <table>
+                <tr>
+                    <th>select</th>
+                    <th>id</th>
+                    <th>title</th>
+                    <th>outhor</th>
+                    <th>message</th>
+                    <th>time posted</th>
+                    <th>action</th>
+                </tr>
+                {% for blog in blog_list%}
+                <tr>
+                    <form action="{{url_for('delete_blog')}}" method="POST">
+                        <td><input type="checkbox" name="blog_id", value="{{blog[0]}}"></td>
+                        <td>{{blog[0]}}</td>
+                        <td>{{blog[1]}}</td>
+                        <td>{{blog[2]}}</td>
+                        <td>{{blog[3]}}</td>
+                        <td>{{blog[4]}}</td>
                         <td><input type="submit" value="delete"></td>
                     </form>
                 </tr>

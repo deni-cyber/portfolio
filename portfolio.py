@@ -51,12 +51,15 @@ def admin ():
     projects_list=Project.get_from_db()
     messages_list=Message.get_from_db()
     testimony_list=Testimony.get_from_db()
+    blog_list=Blog.get_from_db()
     if not projects_list :
         flash('no projects to show')
     elif not messages_list:
         flash('no messages to show')
     elif not testimony_list:
         flash ('no comments to show')
+    elif not blog_list:
+        flash ('no blogs to show')
 
     if request.method =="POST":
         if not request.form['name'] or not request.form['client'] or not request.form['description']:
@@ -91,7 +94,7 @@ def admin ():
             else:
                 flash('ivalid image file')
                 return redirect(request.url)
-    return render_template('admin.html', projects_list=projects_list,messages_list=messages_list,testimony_list=testimony_list)
+    return render_template('admin.html', projects_list=projects_list,messages_list=messages_list,testimony_list=testimony_list, blog_list=blog_list)
 
 
 @app.route('/modify/', methods=["POST", "GET"])
@@ -215,17 +218,43 @@ def contacts ():
 def about ():
     return render_template('about.html')
 
-@app.route('/blog/')
+@app.route('/blog/', methods=['post', 'get'])
 def blog():
     blog_list=Blog.get_from_db()
-    if not blog_list:
-        flash('no blogs yet')
     return render_template('blogs.html', blog_list=blog_list)
 
 @app.route('/art/')
 def art ():
     return render_template('art.html')
 
+@app.route('/add-blog/' , methods=['POST', 'GET'])
+def add_blog():
+    if request.method =='POST':
+        if not request.form['title'] or not request.form['outhor'] or not request.form['description']:
+            flash('fill in all the areas')
+        else:
+            try:
+                blog=request.form
+                blog_to_save=Blog(blog['title'], blog['outhor'], blog['description'])
+                blog_to_save.save_to_db()
+                flash('blog posted succesfully')
+                return render_template('blog.html')
+            except:
+                flash('an error occured')
+            return render_template('admin.html')
+    return render_template('admin.html')
+@app.route('/delet_blog/' , methods=['POST', 'GET'])
+def delete_blog():
+    if request.method == "POST":
+        blog_id = request.form.get('blog_id')
+        print(blog_id)
+        if not blog_id:  
+            flash('No blog has been selected', 'error')
+        else:
+            Blog.remove_from_db(blog_id)
+            flash('Blog deleted successfully', 'success')
+        return redirect(url_for('admin')) 
+    
 
 if __name__ =='__main__':
     app.run()

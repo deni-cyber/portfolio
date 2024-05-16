@@ -125,7 +125,6 @@ class Blog:
         self.aurther=aurther
         self.description=description
         self.db_table_name='Blogs'
-        db_table_name='Blogs'
 
     def __str__(self) -> str:
         return self.title
@@ -149,8 +148,7 @@ Message.create_db_table()
 Testimony.create_db_table()
 Blog.create_db_table()
 
-blog1=Blog("Kebanda tools now live", "DK Githinji","Now you can access the kebanda myduka tool at the same rate for the subscribed users. To activate your tools, go to you accounts profile and click on 'update new features'.")
+'''blog1=Blog("Kebanda tools now live", "DK Githinji","Now you can access the kebanda myduka tool at the same rate for the subscribed users. To activate your tools, go to you accounts profile and click on 'update new features'.")
 print(blog1)
 blog1.save_to_db()
-print(Blog.get_from_db())
-
+print(Blog.get_from_db())'''
