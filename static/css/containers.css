@@ -83,7 +83,7 @@
   font-family: 'Courier New', Courier, monospace;
   font-weight: bold;
   width: 0;
-  font-size: 12px;
+  font-size: x-small;
   animation: typing;
   animation-duration: 3s;
   animation-timing-function: steps(100, end);
