@@ -1,5 +1,5 @@
 from flask import Flask, flash, render_template, request, redirect, url_for, send_from_directory
-from models import Project,Message,Testimony
+from models import Project,Message,Testimony,Blog
 import random
 
 import os
@@ -214,6 +214,13 @@ def contacts ():
 @app.route('/about/')
 def about ():
     return render_template('about.html')
+
+@app.route('/blog/')
+def blog():
+    blog_list=Blog.get_from_db()
+    if not blog_list:
+        flash('no blogs yet')
+    return render_template('blogs.html', blog_list=blog_list)
 
 @app.route('/art/')
 def art ():

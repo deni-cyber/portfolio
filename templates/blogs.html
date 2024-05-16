@@ -1,0 +1,15 @@
+{% extends "index.html" %}
+
+{% block title %}Deni- Blogs{% endblock %}
+
+{% block content %}
+    <p>Blogs</p>
+    {% for blog in blog_list%}
+    <div class="infodiv">
+        <h3 style="color: aqua;">{{blog[1]}}</h3><small>{{blog[4]}}</small>
+        <p>"{{blog[3]}}"</p>
+        <p style="color: black; text-align: right;"><small>-by:</small>{{blog[2]}}</p>
+    </div>
+        
+    {% endfor %}
+{% endblock%}

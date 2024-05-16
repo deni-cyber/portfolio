@@ -40,12 +40,12 @@
 
   .card-grid2 {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     grid-gap: 10px;
   }
   
   .card-grid-item2 {
-    background-color: white;
+    background-color: teal;
     padding: 0px;
     border-radius: 5px;
     border: aqua solid 1px;
@@ -57,7 +57,7 @@
   }
   .card-grid-item2 img{
     border-radius: 5px;
-    max-width:160px;
+    max-width:200px;
   }
   
   

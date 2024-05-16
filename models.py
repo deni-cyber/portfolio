@@ -7,10 +7,10 @@ def add_db_table(table_name, columns):#columns is a tuple and all are strings
             dbcon=sqlite3.connect(DATABASE_NAME)
             dbcon.execute(f'CREATE TABLE {table_name} {columns}')
             dbcon.close()
-            print( '****db project tables created successfuly****')
+            print( f'****db {table_name} tables created successfuly****')
 
         except sqlite3.OperationalError as err:
-            print(f'****db could not be created ({err}) ****')
+            print(f'****db table {table_name} could not be created ({err}) ****')
 
 def save(table_name,values):
         dbcon=sqlite3.connect(DATABASE_NAME)
@@ -21,6 +21,8 @@ def save(table_name,values):
              cur.execute("INSERT INTO Messages (visitor_name,visitor_email,subject,message) VALUES (?,?,?,?)",values)
         elif table_name =='Testimonials':
              cur.execute("INSERT INTO Testimonials (client_name,client_message) VALUES (?,?)",values)
+        elif table_name =='Blogs':
+             cur.execute("INSERT INTO Blogs (title,aurther,description) VALUES (?,?,?)",values)
         dbcon.commit()
         dbcon.close()
 
@@ -117,6 +119,38 @@ class Testimony:
     def delete_message(id):
          delete("Testimonials", id)
 
+class Blog:
+    def __init__(self, title, aurther, description):
+        self.title=title
+        self.aurther=aurther
+        self.description=description
+        self.db_table_name='Blogs'
+        db_table_name='Blogs'
+
+    def __str__(self) -> str:
+        return self.title
+        
+    def create_db_table():
+         add_db_table('Blogs','(ID INTEGER PRIMARY KEY AUTOINCREMENT,title TEXT , aurther TEXT, description TEXT, time_submitted TIMESTAMP DEFAULT CURRENT_TIMESTAMP)')
+    
+    def save_to_db(self):
+        save(self.db_table_name, (self.title,self.aurther,self.description) )
+        
+
+    def remove_from_db(id):
+        delete('Blogs', id)
+
+    def get_from_db():
+        return get('Blogs')
+
+
 Project.create_db_table()
 Message.create_db_table()
 Testimony.create_db_table()
+Blog.create_db_table()
+
+blog1=Blog("Kebanda tools now live", "DK Githinji","Now you can access the kebanda myduka tool at the same rate for the subscribed users. To activate your tools, go to you accounts profile and click on 'update new features'.")
+print(blog1)
+blog1.save_to_db()
+print(Blog.get_from_db())
+
