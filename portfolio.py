@@ -186,8 +186,6 @@ def testimony ():
         return redirect(url_for('home'))
     return redirect(url_for('home'))
 
-
-
 @app.route('/delete_testimony/', methods=['post', 'get'])
 def delete_testimony():
     if request.method == "POST":
@@ -221,6 +219,7 @@ def about ():
 @app.route('/blog/', methods=['post', 'get'])
 def blog():
     blog_list=Blog.get_from_db()
+    blog_list.reverse()
     return render_template('blogs.html', blog_list=blog_list)
 
 @app.route('/art/')
@@ -238,7 +237,6 @@ def add_blog():
                 blog_to_save=Blog(blog['title'], blog['outhor'], blog['description'])
                 blog_to_save.save_to_db()
                 flash('blog posted succesfully')
-                return render_template('blog.html')
             except:
                 flash('an error occured')
             return render_template('admin.html')
