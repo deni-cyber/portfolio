@@ -4,19 +4,16 @@
 
 {% block content %}
     <div  class="container">
-        <div class="card left-column" style="color: white; text-align: left; padding: 20px; border-top: none; text-wrap: wrap;">
+        <div class="left-column" style="color: white; text-align: left; padding: 20px; border-top: none; text-wrap: wrap;">
             <div class="socials-grid">
-                <card class=""><img src="{{url_for('static', filename='/images/email.png')}}">denitechnologies@gmain.com</card>
-                <card class=""><img src="{{url_for('static', filename='/images/ig.jpg')}}">@denitechnologies</card>
-                <card class=""><img src="{{url_for('static', filename='/images/fb.png')}}">denitechnologies</card>
-                <card class=""><img src="{{url_for('static', filename='/images/x.png')}}">@denitechnologies</card>
-                <card class=""><img src="{{url_for('static', filename='/images/phone.jpg')}}">+2547 9161-0129</card>
-                <card class=""><img src="{{url_for('static', filename='/images/git.png')}}">deni-cyber</card>
+                <card class="card"><img src="{{url_for('static', filename='/images/email.png')}}">denitechnologies@gmain.com</card>
+                <card class="card"><img src="{{url_for('static', filename='/images/phone.jpg')}}">+2547 9161-0129</card>
+                <card class="card"><img src="{{url_for('static', filename='/images/git.png')}}">deni-cyber</card>
             </div>
         </div>
         <div class="card right-column" style="border-top: none;">
             <h2>write to me</h2>
-            <div class="formdiv" style="width: 50%;">
+            <div class="formdiv" style="width: 90%;">
                 <form action="{{url_for('message')}}" method="POST">
                     <p><label> name </label>
                         <input type="text" name="username"></p>

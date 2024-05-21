@@ -74,6 +74,7 @@
   background-color: rgba(0, 0, 0, 0.507);
   padding: 1px;
   border-radius: 5px;
+  text-align: center;
 }
 
 .typed {
@@ -90,15 +91,15 @@
   animation-fill-mode: forwards;
   border-right: 2px solid white;
   animation: typing 1.5s steps(30, end) forwards, blinking 1s infinite;
+  text-align: center;
 }
 
 .skills-card{ 
-  background-color: rgba(0, 0, 0, 0.322);
   color: white; 
   border-radius: 5px; 
   padding: 5px; 
   font-size: small;
-  text-align: left;
+  text-align: center;
 }
 
 @keyframes typing {
@@ -122,9 +123,12 @@
   }
   .typed{
     font-size: larger;
+    text-align: center;
+  }
+  .typed-container{
+    text-align: center;
   }
   .skills-card{ 
-    background-color: rgba(0, 0, 0, 0.322);
     color: white; 
     border-radius: 5px; 
     padding: 5px; 

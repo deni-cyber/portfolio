@@ -3,48 +3,56 @@
 {% block title %}Deni- landing page{% endblock %}
 
 {% block content %}
-<div class="infodiv"  style="border-top: none;">
-    <div class="landpage card">
-        <!--<div class="box" id="animatedDiv">
-            <img src= "{{url_for('static', filename='/images/comp_vector.jpg')}}" >
-        </div>-->
-        <div id="container" style="background-color: rgba(9, 43, 43, 0.349);">
-            <div id="box" >
-                <h3>Hello world! Welcome to my portfolio;</h3>
-                <div class="typed-container">
-                    <p class="typed">My name is <span style="color: white;">Denis</span>, an <span style="color: orangered;background-color: black;">Engineer <span style="color: aqua;">and a</span> Programmer</span>():</p>
+<div class="infodiv landpage "  style="border-top: none;padding: 0px;">
+    <div style="background-color: rgba(0, 128, 128, 0.397);">
+        <div>
+            <div id="container">
+                <div id="box" >
+                    <h3>Hello world! Welcome to my portfolio;</h3>
+                    <div class="typed-container">
+                        <p class="typed">My name is <span style="color: white;">Denis</span>, an <span style="color: orangered;background-color: black;">Engineer <span style="color: aqua;">and a</span> Programmer</span>():</p>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-    <h2 style="text-align: center;">My Skills</h2>
-    <div class="container">
-        <div class="socials-grid">
-            <div  class="skills-card">
-                <p>
-                    I am versatile and proficient in <b><mark style="background-color: black; font-size: large; color: aqua;">C, C++, Python (Django & Flask), HTML, CSS, and JavaScript</mark></b>.
-                </p>
-            </div> 
-            <div class="" style="border: none; padding: 10px; text-align: center;">
-                <span class="icon-card2"><img src="{{url_for('static', filename='/images/c++.png')}}"></span>
-                <span class="icon-card2"><img src="{{url_for('static', filename='/images/python.jpg')}}"></span>
-                <span class="icon-card2"><img src="{{url_for('static', filename='/images/dj.png')}}"></span>
-                <span class="icon-card2"><img src="{{url_for('static', filename='/images/html.png')}}"></span>
-                <span class="icon-card2"><img src="{{url_for('static', filename='/images/flask.png')}}"></span>
-                <span class="icon-card2"><img src="{{url_for('static', filename='/images/c.png')}}"></span>
-                <!--<span class="icon-card2"><img src="{{url_for('static', filename='/images/arduino.jpg')}}"></span>-->
+        <div class="container">
+            <div class="socials-grid left-column card" style="margin-left:1px; text-align: left; border: none;" >
+                <div  class="skills-card">
+                    <p>
+                        I am versatile and proficient in <b><mark style="background-color: black; font-size: large; color: aqua;">C, C++, Python (Django & Flask), HTML, CSS, and JavaScript</mark></b>.
+                    </p>
+                </div> 
+                <div class="" style="border: none; padding: 10px; text-align: center;">
+                    <span class="icon-card2"><img src="{{url_for('static', filename='/images/c++.png')}}"></span>
+                    <span class="icon-card2"><img src="{{url_for('static', filename='/images/python.jpg')}}"></span>
+                    <span class="icon-card2"><img src="{{url_for('static', filename='/images/dj.png')}}"></span>
+                    <span class="icon-card2"><img src="{{url_for('static', filename='/images/html.png')}}"></span>
+                    <span class="icon-card2"><img src="{{url_for('static', filename='/images/flask.png')}}"></span>
+                    <span class="icon-card2"><img src="{{url_for('static', filename='/images/c.png')}}"></span>
+                    <!--<span class="icon-card2"><img src="{{url_for('static', filename='/images/arduino.jpg')}}"></span>-->
+                </div>
             </div>
-
+            <div class="card right-column" style="margin-left:1px; text-align: left; border: none;">
+                <h3>Intrests</h3>
+                <p>. Web Development(Backend & Frontend)</p>
+                <p>. Desktop and Mobile app development</p>
+                <p>. Game Development</p>
+                <p>. Graphics Design</p>
+                <p>. Animations</p>
+            </div>
         </div>
     </div>
 </div>
 <div class="card">
-    <div class="git-card">
-        <div>
-            <p class=""><img src="{{url_for('static', filename='/images/git.png')}}"></p>
+    <h3>Github</h3>
+    <a href="https://github.com/deni-cyber" style="color: white;">
+        <div class="git-card">
+            <div>
+                <p class=""><img src="{{url_for('static', filename='/images/git.png')}}"></p>
+            </div>
         </div>
-    </div>
-    deni-cyber
+        deni-cyber
+    </a>
 </div>
 
 <div  class="row">
@@ -121,7 +129,6 @@
             <div class=" icon-card"><img src="{{url_for('static', filename='/images/fb.png')}}">denitechnologies</div>
             <div class=" icon-card"><img src="{{url_for('static', filename='/images/phone.jpg')}}">+2547 9161-0129</div>
             <div class=" icon-card"><img src="{{url_for('static', filename='/images/x.png')}}">@denitechnologies</div>
-            <div class=" icon-card"><img src="{{url_for('static', filename='/images/email.png')}}">denitechnologies@gmain.com</div>
     </div>
 </div>
 

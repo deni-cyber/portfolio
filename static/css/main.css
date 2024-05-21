@@ -1,6 +1,6 @@
 /* General Body Styles */
 body {
-    background-color: teal;
+    background-color: rgb(9, 126, 126);
     padding: 0px;
     font-family: 'Courier New', Courier, monospace;
     font-size: small;
@@ -163,7 +163,7 @@ body {
   }
 
   .git-card img{
-    max-width: 50px;
+    max-width: 30px;
     height: auto;
     border-radius: 5px;
   }
@@ -205,7 +205,7 @@ body {
       font-size: larger;
     }
     .icon-card2 img{
-      max-width: 50px;
+      max-width: 40px;
     }
     .landpage{
       height: auto;
