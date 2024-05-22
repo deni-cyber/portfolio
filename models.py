@@ -23,6 +23,8 @@ def save(table_name,values):
              cur.execute("INSERT INTO Testimonials (client_name,client_message) VALUES (?,?)",values)
         elif table_name =='Blogs':
              cur.execute("INSERT INTO Blogs (title,aurther,description) VALUES (?,?,?)",values)
+        if table_name=='Art':
+             cur.execute("INSERT INTO Art (name,category,description,art_image_url,art_image_filename) VALUES (?,?,?,?,?)",values)
         dbcon.commit()
         dbcon.close()
 
@@ -143,12 +145,42 @@ class Blog:
         return get('Blogs')
 
 
+class Art:
+    def __init__(self, name, category, description, art_image_url, art_image_filename):
+        self.name=name
+        self.category=category
+        self.description=description
+        self.art_image_url=art_image_url
+        self.art_image_filename=art_image_filename
+        self.db_table_name='Art'
+        db_table_name='Art'
+
+    def __str__(self) -> str:
+        return self.name
+        
+    def create_db_table():
+         add_db_table('Art','(ID INTEGER PRIMARY KEY AUTOINCREMENT,name TEXT , category TEXT, description TEXT, art_image_url TEXT, art_image_filename TEXT)')
+    
+    def save_to_db(self):
+        save(self.db_table_name, (self.name,self.category,self.description,self.art_image_url,self.art_image_filename) )
+        
+
+    def remove_from_db(id):
+        delete('Art', id)
+
+    def get_from_db():
+        return get('Art')
+
+
+'''dbcon=sqlite3.connect(DATABASE_NAME)
+dbcon.execute("DROP TABLE Art") 
+print('tbl deleted')
+dbcon.close()
+'''
+
 Project.create_db_table()
 Message.create_db_table()
 Testimony.create_db_table()
 Blog.create_db_table()
+Art.create_db_table()
 
-'''blog1=Blog("Kebanda tools now live", "DK Githinji","Now you can access the kebanda myduka tool at the same rate for the subscribed users. To activate your tools, go to you accounts profile and click on 'update new features'.")
-print(blog1)
-blog1.save_to_db()
-print(Blog.get_from_db())'''

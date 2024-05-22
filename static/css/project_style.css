@@ -45,7 +45,7 @@
   }
   
   .card-grid-item2 {
-    background-color: teal;
+    background-color: rgba(0, 128, 128, 0.089);
     padding: 0px;
     border-radius: 5px;
     border: aqua solid 1px;

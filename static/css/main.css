@@ -1,6 +1,6 @@
 /* General Body Styles */
 body {
-    background-color: rgb(9, 126, 126);
+    background-color: black;
     padding: 0px;
     font-family: 'Courier New', Courier, monospace;
     font-size: small;
@@ -14,10 +14,9 @@ body {
   .card {
     color: white;
     border-top: none;
-    border: 1px solid aqua;
     border-radius: 5px;
     padding: 5px;
-    background-color: teal;
+    background-color: rgba(0, 128, 128, 0.13);
   }
   
   /* Input Styles */
@@ -71,7 +70,7 @@ body {
   /* Landing Page Styles */
   .landpage {
     background-image: url("/static/images/bgif.gif");
-    background-color: teal; /* Fallback background color */
+    background-color: rgba(0, 128, 128, 0.212); /* Fallback background color */
     text-align: center;
     padding: 0%;
     background-position: center;
@@ -106,7 +105,7 @@ body {
   /* Footer Styles */
   .footer {
     color: white;
-    background-color: teal;
+    background-color: rgba(0, 128, 128, 0.11);
     border-top: 5px solid aqua;
     margin-top: 5%;
     text-align: center;
@@ -116,7 +115,6 @@ body {
   .formdiv {
     text-align: left;
     color: aqua;
-    background-color: teal;
     margin: 0 auto; /* Center align horizontally */
     max-width: 80%; /* Limit maximum width */
   }
@@ -192,8 +190,6 @@ body {
   /* Responsive Layout */
   @media (min-width: 768px) {
     body {
-      padding-left: 10%; 
-      padding-right: 10%;
       font-size: medium;
     }
   

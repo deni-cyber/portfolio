@@ -2,9 +2,8 @@ nav{
   top: 0;
   width: 100%;
   list-style: none;
-  background-color: teal;
+  background-color: rgba(0, 128, 128, 0.274);
   display: flex;
-  margin-bottom: 15px;
   border: solid 1px aqua;
   border-top: none;
   border-radius: 5px;
@@ -32,7 +31,7 @@ nav a{
   color: white;
 }
 nav  a:hover{
-  background-color: rgba(27, 247, 247, 0.384);
+  background-color: rgba(27, 247, 247, 0.103);
   border: white solid 1px;
   border-bottom: none;
   border-radius: 5px;
@@ -42,7 +41,7 @@ nav  a:hover{
   border: aqua solid 1px;
   border-bottom: none;
   border-radius: 5px;
-  background-color: rgba(27, 247, 247, 0.384);
+  background-color: rgba(27, 247, 247, 0.116);
 }
 nav li:first-child{
   margin-right: auto;

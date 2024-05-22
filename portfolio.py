@@ -1,5 +1,5 @@
 from flask import Flask, flash, render_template, request, redirect, url_for, send_from_directory
-from models import Project,Message,Testimony,Blog
+from models import Project,Message,Testimony,Blog,Art
 import random
 
 import os
@@ -48,19 +48,28 @@ def uploaded_file(filename):
 
 @app.route('/admin/', methods=["POST","GET"])
 def admin ():
+    art_category_list=['Digital','Posta', 'logo', 'drawing', 'painting', ]
     projects_list=Project.get_from_db()
     messages_list=Message.get_from_db()
     testimony_list=Testimony.get_from_db()
     blog_list=Blog.get_from_db()
+    art_list=Art.get_from_db()
     if not projects_list :
         flash('no projects to show')
-    elif not messages_list:
+    if not messages_list:
         flash('no messages to show')
-    elif not testimony_list:
+    if not testimony_list:
         flash ('no comments to show')
-    elif not blog_list:
+    if not blog_list:
         flash ('no blogs to show')
+    if not art_list:
+        flash ('no art to show')
+    return render_template('admin.html', projects_list=projects_list,messages_list=messages_list,testimony_list=testimony_list, 
+                           blog_list=blog_list, art_category_list=art_category_list, art_list=art_list)
 
+
+@app.route('/add_project/',methods=['POST', 'GET'])
+def add_project():
     if request.method =="POST":
         if not request.form['name'] or not request.form['client'] or not request.form['description']:
             flash('Please enter all the fields', 'error')
@@ -94,8 +103,50 @@ def admin ():
             else:
                 flash('ivalid image file')
                 return redirect(request.url)
-    return render_template('admin.html', projects_list=projects_list,messages_list=messages_list,testimony_list=testimony_list, blog_list=blog_list)
+        return redirect(url_for('admin'))
+    else:
+        # Redirect GET requests to admin page
+        return redirect(url_for('admin'))
 
+@app.route('/add_art/',methods=['POST', 'GET'])
+def add_art():
+    if request.method =="POST":
+        if not request.form['name'] or not request.form['category'] or not request.form['description']:
+            flash('Please enter all the fields', 'error')
+
+        else:
+
+            if 'file' not in request.files:
+                flash('No file part')
+                return redirect(request.url)
+            
+            file = request.files['file']
+            # if user does not select file, browser also
+            # submit an empty part without filename
+            if file.filename == '':
+                flash('No selected file')
+                return redirect(request.url)
+            if file and allowed_file(file.filename):
+                filename = secure_filename(file.filename)  
+
+                name=(request.form['name'])
+                category=(request.form['category'])
+                description=(request.form['description'])
+                art_image_url=url_for('uploaded_file', filename=filename)
+                art_image_filename=filename
+
+                art=Art(name, category, description ,art_image_url,art_image_filename)
+                art.save_to_db()
+                file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))   
+                flash(f'Art-{art} added to the Arts & Graphics successfuly')
+                return redirect(request.url)
+            else:
+                flash('ivalid image file')
+                return redirect(request.url)
+        return redirect(url_for('admin'))
+    else:
+        # Redirect GET requests to admin page
+        return redirect(url_for('admin'))
 
 @app.route('/modify/', methods=["POST", "GET"])
 def modify():
@@ -122,6 +173,45 @@ def modify():
                 Project.remove_from_db(project_id)
 
                 flash('Project deleted successfully')
+            else:
+                flash('Invalid project selection format')
+
+        except FileNotFoundError:
+            flash(f'File not found: {filename}')
+        except Exception as e:
+            flash(f'An error occurred: {str(e)}')
+
+        return redirect(url_for('admin'))
+
+    else:
+        # Redirect GET requests to admin page
+        return redirect(url_for('admin'))
+
+@app.route('/amodify_art/', methods=["POST", "GET"])
+def modify_art():
+    if request.method == 'POST':
+        # Get the 'project' value from the form
+        art = request.form.get('art')
+
+        if not art:
+            flash('No project has been selected')
+            return redirect(url_for('admin'))
+
+        # Split the 'project' value assuming it's formatted as "<project_id> <filename>"
+        try:
+            art_parts = art.split()
+            if len(art_parts) >= 2:
+                art_id, filename = art_parts[0], art_parts[1]
+
+                # Remove the file associated with the project
+                file_path = os.path.join(app.config['UPLOAD_FOLDER'], filename)
+                if os.path.exists(file_path):
+                    os.remove(file_path)
+
+                # Remove project from the database
+                Art.remove_from_db(art_id)
+
+                flash('Art deleted successfully')
             else:
                 flash('Invalid project selection format')
 
@@ -224,7 +314,10 @@ def blog():
 
 @app.route('/art/')
 def art ():
-    return render_template('art.html')
+    art_list=Art.get_from_db()
+    if not art_list:
+        flash('no art available')
+    return render_template('art.html', art_list=art_list)
 
 @app.route('/add-blog/' , methods=['POST', 'GET'])
 def add_blog():
@@ -245,14 +338,12 @@ def add_blog():
 def delete_blog():
     if request.method == "POST":
         blog_id = request.form.get('blog_id')
-        print(blog_id)
         if not blog_id:  
             flash('No blog has been selected', 'error')
         else:
             Blog.remove_from_db(blog_id)
             flash('Blog deleted successfully', 'success')
         return redirect(url_for('admin')) 
-    
 
 if __name__ =='__main__':
-    app.run()
+    app.run(debug=True)

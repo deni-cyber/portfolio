@@ -3,8 +3,8 @@
 {% block title %}Deni- landing page{% endblock %}
 
 {% block content %}
-<div class="infodiv landpage "  style="border-top: none;padding: 0px;">
-    <div style="background-color: rgba(0, 128, 128, 0.397);">
+<div class="infodiv landpage card "  style="border-top: none;padding: 0px;">
+    <div style="background-color: rgba(9, 36, 36, 0.849);">
         <div>
             <div id="container">
                 <div id="box" >
@@ -16,7 +16,7 @@
             </div>
         </div>
         <div class="container">
-            <div class="socials-grid left-column card" style="margin-left:1px; text-align: left; border: none;" >
+            <div class="socials-grid left-column " style="margin-left:1px; text-align: left; border: none;" >
                 <div  class="skills-card">
                     <p>
                         I am versatile and proficient in <b><mark style="background-color: black; font-size: large; color: aqua;">C, C++, Python (Django & Flask), HTML, CSS, and JavaScript</mark></b>.
@@ -32,7 +32,7 @@
                     <!--<span class="icon-card2"><img src="{{url_for('static', filename='/images/arduino.jpg')}}"></span>-->
                 </div>
             </div>
-            <div class="card right-column" style="margin-left:1px; text-align: left; border: none;">
+            <div class="right-column card" style="margin-left:1px; text-align: left; border-right: none;border-bottom: none;">
                 <h3>Intrests</h3>
                 <p>. Web Development(Backend & Frontend)</p>
                 <p>. Desktop and Mobile app development</p>
@@ -89,8 +89,6 @@
             </div>
         <button class="display-right" onclick="plusDivs(1)">&#10095;</button>
     </div>
-</div>
-<div class="card" style="display: flex; justify-content: center;"> 
     <div class="formdiv">
         <p>Leave a Comment or a Complement</p>
         <form action="{{url_for('testimony')}}" method="POST" style="border: none; width: 100%;">
@@ -102,6 +100,7 @@
         </form>
     </div>  
 </div>
+
 
 
 <div class="container">
@@ -123,7 +122,7 @@
             </div>  
         </div>
     </div>
-    <div class="card right-column" style="margin-left: 5px;">
+    <div class="card right-column" style="margin: 0px; border: none; background-color: rgba(0, 128, 128, 0);">
         <h2 style="text-align: center;">Social Links</h2>
             <div class=" icon-card"><img src="{{url_for('static', filename='/images/ig.jpg')}}">@denitechnologies</div>
             <div class=" icon-card"><img src="{{url_for('static', filename='/images/fb.png')}}">denitechnologies</div>

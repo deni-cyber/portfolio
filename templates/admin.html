@@ -3,17 +3,42 @@
 {% block title %}Deni- admin{% endblock %}
 
 {% block content %}
-        <h1>Admin Panel</h1>		
+        <h3>Admin Panel</h3>
+        <hr/>
+    <!--this part is for forms-->	
+
     <div  class="infodiv">
         <h3 style="color: white; text-align: center;">add a project</h3>
         <div class="formdiv">
-            <form action = "{{ url_for('admin') }}" method = "POST" enctype=multipart/form-data>
+            <form action = "{{ url_for('add_project') }}" method = "POST" enctype=multipart/form-data>
                 Name<br>
                 <input type = "text" name = "name" /></br>
                 
                 Client<br>
                 <input type = "text" name = "client" /><br>
                 
+                Description<br>
+                <textarea name = "description" ></textarea><br>
+
+                <input type = "file" name = "file" /></br>
+
+                <input type = "submit" value = "submit" /><br>
+            </form>
+        </div>
+    </div>
+    <div  class="infodiv">
+        <h3 style="color: white; text-align: center;">add an Art or a Graphics Project</h3>
+        <div class="formdiv">
+            <form action = "{{ url_for('add_art') }}" method = "POST" enctype=multipart/form-data>
+                Name<br>
+                <input type = "text" name = "name" /></br>
+                
+                Category<br>
+                <select name="category" id="category">
+                    {% for art_category in art_category_list%}
+                        <option value={{art_category}}>{{art_category}}</option>
+                    {%endfor%}
+                </select>
                 Description<br>
                 <textarea name = "description" ></textarea><br>
 
@@ -39,6 +64,12 @@
             </form>
         </div>
     </div>
+
+
+    <!--this section is for the tables-->
+
+
+    <!--table for projects-->
 
     <div class="infodiv">
         <h3 style="color: white; text-align: center;">Uploaded projects</h3>
@@ -74,6 +105,8 @@
 
         </div>
     </div>
+
+    <!--table for messages-->
     <div class="infodiv">
         <h3 style="color: white; text-align: center;">received messages</h3>
         <div>               
@@ -106,6 +139,7 @@
         </div>
     </div>
 
+    <!--table for comments-->
     <div class="infodiv">
         <h3 style="color: white; text-align: center;">received comments</h3>
         <div>               
@@ -134,6 +168,7 @@
         </div>
     </div>
 
+    <!--table for blogs-->
     <div class="infodiv">
         <h3 style="color: white; text-align: center;">blogs</h3>
         <div>               
@@ -161,6 +196,42 @@
                 </tr>
                 {% endfor %}
             </table>                    
+        </div>
+    </div>
+
+    <!--table for artworks-->
+    <div class="infodiv">
+        <h3 style="color: white; text-align: center;">Uploaded Artwork</h3>
+
+        <div>
+                    
+            <table>
+                <tr>
+                    <th>select</th>
+                    <th>id</th>
+                    <th>name</th>
+                    <th>description</th>
+                    <th>category</th>
+                    <th>action</th>
+                </tr>
+                
+                {% for art in art_list%}
+                <tr>
+                    <form action="{{url_for('modify_art')}}" method="POST">   
+                    <td><input type="checkbox" name="art", value="{{art[0]}} {{art[5]}}"></td>
+                    <td>{{art[0]}}</td>
+                    <td><img src="{{art[4]}}" alt="project image" style="max-width: 50px; height: auto;"><p>{{art[1]}}</p></td>
+                    <td>{{art[3]}}</td>
+                    <td>{{art[2]}}</td>
+                    <td><input type="submit" value="delete" ></td>
+                    </form>  
+                </tr>
+                {% endfor %}
+                
+                
+            </table>
+            
+
         </div>
     </div>
 {% endblock %}

@@ -5,7 +5,7 @@
 {% block content %}
     <p>Blogs</p>
     {% for blog in blog_list%}
-    <div class="infodiv">
+    <div class="card" style="text-align: left;">
         <p><small>{{blog[4]}}</small></p>
         <h3 style="color: aqua;">{{blog[1]}}</h3><hr/>
         <p>"{{blog[3]}}"</p>
