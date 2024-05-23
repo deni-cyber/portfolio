@@ -3,25 +3,31 @@
 {% block title %}Deni- contacts{% endblock %}
 
 {% block content %}
-    <div  class="container card" style="border-top: none;">
-        <div class="left-column" style="color: white; text-align: left; padding: 20px; border-top: none; text-wrap: wrap;">
-            <div class="socials-grid">
-                <card class="card"><img src="{{url_for('static', filename='/images/email.png')}}">denitechnologies@gmain.com</card>
-                <card class="card"><img src="{{url_for('static', filename='/images/phone.jpg')}}">+2547 9161-0129</card>
-                <card class="card"><img src="{{url_for('static', filename='/images/git.png')}}">deni-cyber</card>
+    <div  class="container2">
+        <div class="column-left">
+            <div class="column card">
+                <div class="icon"><img src="{{url_for('static', filename='/images/email.png')}}">
+                    <p>denitechnologies@gmain.com</p>
+                </div>
+                <div class="icon"><img src="{{url_for('static', filename='/images/phone.jpg')}}">
+                    <p>+2547 9161-0129</p>
+                </div>
+                <div class="icon"><img src="{{url_for('static', filename='/images/git.png')}}">
+                    <p>deni-cyber</p>
+                </div>
             </div>
         </div>
-        <div class="card right-column" style="border-top: none;">
+        <div class="column-right">
             <h2>write to me</h2>
-            <div class="formdiv" style="width: 90%;">
+            <div class="formdiv" style="width: 90%; background-color: rgb(1, 32, 32);">
                 <form action="{{url_for('message')}}" method="POST">
-                    <p><label> name </label>
+                    <p><label> name </label><br>
                         <input type="text" name="username"></p>
-                    <p><label>email</label>
+                    <p><label>email</label><br>
                         <input type="email" name="useremail"></p>
-                    <p><label> subject </label>
+                    <p><label> subject </label><br>
                         <input type="text" name="subject"></p>
-                    <p><label>message</label></p>
+                    <p><label>message</label></p><br>
                     <p><textarea name = "message"  style="width: 100%; height: 100px;"></textarea></p>
                     <input type = "submit" value = "send" />
                 </form>

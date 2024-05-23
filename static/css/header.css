@@ -1,19 +1,13 @@
 nav{
-  top: 0;
   width: 100%;
   list-style: none;
-  background-color: rgba(0, 128, 128, 0.274);
   display: flex;
-  border: solid 1px aqua;
-  border-top: none;
-  border-radius: 5px;
+  background-color:black;
   justify-content: space-between;
-
 }
 nav ul{
   display: flexbox;
   justify-content: flex-end;
-
 }
 nav li{
   height: 50px;
@@ -32,16 +26,13 @@ nav a{
 }
 nav  a:hover{
   background-color: rgba(27, 247, 247, 0.103);
-  border: white solid 1px;
-  border-bottom: none;
-  border-radius: 5px;
 }
 
 .active{
   border: aqua solid 1px;
+  border-top: none;
   border-bottom: none;
-  border-radius: 5px;
-  background-color: rgba(27, 247, 247, 0.116);
+  background-color: rgb(1, 32, 32);;
 }
 nav li:first-child{
   margin-right: auto;
@@ -53,12 +44,12 @@ nav li:first-child{
   right: 10%;
   width: 250px;
   z-index: 999;
-  background-color: rgba(0, 128, 128, 0.342);
+  background-color: rgba(47, 79, 79, 0.418);
   backdrop-filter: blur(10px);
   box-shadow: -3px 0 white;
   flex-direction: column;
   align-items: flex-start;
-  justify-content: flex-start;
+  justify-content: center;
   display: none;
   height: 100%;
 }
@@ -69,12 +60,16 @@ nav li:first-child{
   width: 100%;
 }
 .sidebar li:first-child{
-  background-color: rgba(255, 255, 255, 0.452);
+  background-color: darkslategray;
 }
 .menubutton{
   display: none;
 }
 
+.logo img{
+  width: 50px;
+  height: auto;
+}
 
 @media(max-width:1100px){
   .hideonmobile{

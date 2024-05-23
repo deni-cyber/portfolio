@@ -1,210 +1,189 @@
-/* General Body Styles */
+* {
+  margin: 0;
+  padding: 0;
+}
+/* this file is dedicated for styling the landing page and the body*/
 body {
-    background-color: black;
     padding: 0px;
     font-family: 'Courier New', Courier, monospace;
     font-size: small;
-  }
-  maek{
-    color: white;
-    background-color: orangered;
-  }
-  
-  /* Card Styles */
-  .card {
-    color: white;
-    border-top: none;
-    border-radius: 5px;
-    padding: 5px;
-    background-color: rgba(0, 128, 128, 0.13);
-  }
-  
-  /* Input Styles */
-  input {
-    width: max-content;
-    padding: 2px;
-  }
-  
-  /* Button Styles */
-  button {
-    color: black;
-    border: 1px solid aqua;
-    border-radius: 5px;
-    padding: 5px;
-    background-color: white;
-    cursor: pointer; /* Add pointer cursor on hover */
-  }
-  
-  button:hover {
-    border-color: orangered;
-    background-color: black;
-    color: aqua;
-  }
-  
-  /* Table Styles */
-  table {
-    width: 100%;
-    border-collapse: collapse; /* Collapse table borders */
-  }
-  
-  th, td {
-    border: 1px solid aqua;
-    text-align: center;
-    padding: 0px; /* Increase padding for better spacing */
-  }
-  
-  /* Label Styles */
-  label {
-    color: aqua;
-    font-size: small;
-    width: 30%;
-    text-align: center;
-  }
-  
-  /* Heading Styles */
-  h2, h3 {
-    color: white;
-    font-size: medium;
-  }
-  
-  /* Landing Page Styles */
-  .landpage {
-    background-image: url("/static/images/bgif.gif");
-    background-color: rgba(0, 128, 128, 0.212); /* Fallback background color */
-    text-align: center;
-    padding: 0%;
-    background-position: center;
-    background-size: contain;
-  }
-  
-  .landpage h1 {
-    color: orangered;
-  }
-  
-  .landpage h2 {
-    color: aqua;
-  }
-  
-  
-  /* Header Logo Styles */
-  #headerlogo {
-    width: 50px;
-    height: 50px;
-  }
-  
-  /* Info Div Styles */
-  .infodiv {
-    padding: 10px; /* Increase padding for better spacing */
-    color: white;
-    border: 1px solid aqua;
-    border-radius: 5px;
-    margin-bottom: 5%;
-    margin-top: 5%;
-  }
-  
-  /* Footer Styles */
-  .footer {
-    color: white;
-    background-color: rgba(0, 128, 128, 0.11);
-    border-top: 5px solid aqua;
-    margin-top: 5%;
-    text-align: center;
-  }
-  
-  /* Form Div Styles */
-  .formdiv {
-    text-align: left;
-    color: aqua;
-    margin: 0 auto; /* Center align horizontally */
-    max-width: 80%; /* Limit maximum width */
-  }
-  .formdiv input{
-    width: 100%;
-  }
-
-  .formdiv textarea{
-    width: 100%;
-    height: 100px;
-  }
-  
-  
-  
-  /* Icon Card Styles */
-  .icon-card {
-    text-align: center;
-    font-size: small;
-    margin-left: 22%;
-    text-align: left;
-  }
-  
-  .icon-card img {
-    max-width: 30px;
-    margin-right: 5px;
-    border-radius: 5px;
-  }
-
-  .icon-card2{
-    max-width: 30px;
     text-align: center;
   }
 
-  .icon-card2 img{
-    max-width: 20px;
-    margin-right: 5px;
-    border-radius: 5px;
-    border: solid 1px aqua;
-  }
+h1{
+  color: white;
+}
 
-  .git-card{
-    display: flex;
-    justify-content: center;
-  }
-
-  .git-card img{
-    max-width: 30px;
-    height: auto;
-    border-radius: 5px;
-  }
+h2{
+  color: aqua;
+}
+h3{
+  color: black;
+  background-color: white;
+}
+a{
+  color: white;
+}
 
 
-  .socials-grid {
-    display: flex-box;
-    grid-gap: 10px;
-    justify-content: space-around;
-    flex-wrap: wrap;
-  }
- .socials-grid card{
-  margin: 4px;
+table{
   display: flex;
+  width: 100%;
+}
+
+
+
+.container2{
+  display: flex;
+  align-items: stretch;
+  justify-content: space-around;
   flex-direction: column;
-  font-size: small;
+  overflow: hidden;
   text-align: center;
- }
-  .socials-grid img{
-    max-width: 50px;
-    border: solid aqua 1px;
-    padding: 1px;
-    align-self: center;
-    border-radius: 5px;
-  }
+  color: white;
+  padding-top: 4%;
+  background-color: black;
+}
+
+.column{
+  display: flex; 
+  flex-direction: column;
+}
+
+.card{
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  text-align: center;
+  border-radius: 4px;
+  margin: 1px;
+}
+
+.icon{
+  border-radius: 4px;
+  padding: 4px;
+  text-align: center;
+}
+.icon img{
+  max-width: 40px;
+  border-radius: 2px;
+}
+
+
+.column-left{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.image-grid{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  flex-direction: column;
+  border-radius: 8px;
+  row-gap: 0px;
+  column-gap: 0px;
+  padding: 2px;
+}
+.image-card{
+  width: 100%;
+  height: 100%;
+  border-radius: 8px;
+}
+.image-overlay{
+  position: absolute;
+  width: 60%;
+  opacity: 0;
+  transition: .5s ease;
+  background-color: rgb(1, 32, 32);;
+  text-align: left;
+  padding: 4px;
+}
+.text {
+  color: white;
+  text-overflow: scroll;
+}
+.image-card:hover{
+  .image-overlay{
+    opacity: 1;
+    }
+}
+.image-card img{
+  width: 100%;
+  height: 100%;
+  border-radius: 4px;
+}
+.column-right{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  flex-direction: column;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.slide-show-card{
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  
+  align-content: stretch;
+}
+
+.testimonial-slide {
+  display: none;
+}
+.testimonial-slide.active {
+  display: block;
+  height: 100%;
+}
+.testimonial-content {
+  text-align: center;
+}
+ 
+
+
   /* Responsive Layout */
   @media (min-width: 768px) {
-    body {
+    body{
+      padding: 0px;
       font-size: medium;
+        }
+    .container{
+      flex-direction: row;
     }
-  
-    .formdiv {
-      max-width: 100%; /* Adjust maximum width for larger screens */
+    .container2{
+      flex-direction: row;
+      padding: 8%;
     }
-    h2, h3 {
-      color: white;
-      font-size: larger;
+    .column-left {
+      width: 50%;
+      flex-direction: column;
     }
-    .icon-card2 img{
-      max-width: 40px;
+    .column-right{
+      width: 50%;
     }
-    .landpage{
-      height: auto;
+    .image-grid{
+      width: 80%;
+      flex-wrap: wrap;
+      flex-direction: row;
+    }
+    .image-card{
+      width: 40%;
+      height: 40%;
+      border-radius: 8px;
+      margin: 4px;
+    }
+    .image-overlay{
+      width: 10%;
     }
   }
   

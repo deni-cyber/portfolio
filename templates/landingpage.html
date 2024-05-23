@@ -3,133 +3,130 @@
 {% block title %}Deni- landing page{% endblock %}
 
 {% block content %}
-<div class="infodiv landpage card "  style="border-top: none;padding: 0px;">
-    <div style="background-color: rgba(9, 36, 36, 0.849);">
+<div class="">
+    <div class="container2" style="background-color: rgb(1, 32, 32);">
         <div>
-            <div id="container">
-                <div id="box" >
-                    <h3>Hello world! Welcome to my portfolio;</h3>
-                    <div class="typed-container">
-                        <p class="typed">My name is <span style="color: white;">Denis</span>, an <span style="color: orangered;background-color: black;">Engineer <span style="color: aqua;">and a</span> Programmer</span>():</p>
-                    </div>
+            <h2>My name is D.K Githinji.</h2>
+            <h1>
+                 I am an Electrical and Electronic Engineer.
+            </h1>
+        </div>
+    </div>
+    <div class="container2">
+        <div class="column">
+            <h2>Focusing On;</h2>
+            <div class="card" style="text-align: left;">
+                <div>
+                    <p>. Web Development(Backend & Frontend)</p>
+                    <p>. Desktop and Mobile app development</p>
+                    <p>. Game Development</p>
+                    <p>. Graphics Design</p>
+                    <p>. Animations</p>
                 </div>
             </div>
         </div>
-        <div class="container">
-            <div class="socials-grid left-column " style="margin-left:1px; text-align: left; border: none;" >
-                <div  class="skills-card">
-                    <p>
-                        I am versatile and proficient in <b><mark style="background-color: black; font-size: large; color: aqua;">C, C++, Python (Django & Flask), HTML, CSS, and JavaScript</mark></b>.
-                    </p>
-                </div> 
-                <div class="" style="border: none; padding: 10px; text-align: center;">
-                    <span class="icon-card2"><img src="{{url_for('static', filename='/images/c++.png')}}"></span>
-                    <span class="icon-card2"><img src="{{url_for('static', filename='/images/python.jpg')}}"></span>
-                    <span class="icon-card2"><img src="{{url_for('static', filename='/images/dj.png')}}"></span>
-                    <span class="icon-card2"><img src="{{url_for('static', filename='/images/html.png')}}"></span>
-                    <span class="icon-card2"><img src="{{url_for('static', filename='/images/flask.png')}}"></span>
-                    <span class="icon-card2"><img src="{{url_for('static', filename='/images/c.png')}}"></span>
-                    <!--<span class="icon-card2"><img src="{{url_for('static', filename='/images/arduino.jpg')}}"></span>-->
-                </div>
-            </div>
-            <div class="right-column card" style="margin-left:1px; text-align: left; border-right: none;border-bottom: none;">
-                <h3>Intrests</h3>
-                <p>. Web Development(Backend & Frontend)</p>
-                <p>. Desktop and Mobile app development</p>
-                <p>. Game Development</p>
-                <p>. Graphics Design</p>
-                <p>. Animations</p>
+        <div class="column">
+            <h2>skills</h2>
+            <div class="card">
+                <div class="icon"><img src="{{url_for('static', filename='/images/c++.png')}}"></div>
+                <div class="icon"><img src="{{url_for('static', filename='/images/python.jpg')}}"></div>
+                <div class="icon"><img src="{{url_for('static', filename='/images/dj.png')}}"></div>
+                <div class="icon"><img src="{{url_for('static', filename='/images/html.png')}}"></div>
+                <div class="icon"><img src="{{url_for('static', filename='/images/flask.png')}}"></div>
+                <div class="icon"><img src="{{url_for('static', filename='/images/c.png')}}"></div>
             </div>
         </div>
     </div>
-</div>
-<div class="card">
-    <h3>Github</h3>
-    <a href="https://github.com/deni-cyber" style="color: white;">
-        <div class="git-card">
-            <div>
-                <p class=""><img src="{{url_for('static', filename='/images/git.png')}}"></p>
-            </div>
-        </div>
-        deni-cyber
-    </a>
 </div>
 
-<div  class="row">
-    <div class="left-column">
-        <div class="card">
-            <h2>Selected Projects</h2>
-            <div class="card-grid">
-                {% for project in projects_list%}
-                    <div class="card-grid-item">
-                        <img src="{{project[4]}}" alt="project image">
-                        <h class="overlay">
-                            <div >
-                                <strong>{{project[1]}}</strong>
-                            </div>
-                        </h>
+<div class="container2" style="background-color: rgb(1, 32, 32);">
+    <div class="column-left">
+        <h2>Random Projects</h2>
+        <div class="image-grid">
+            {% for project in projects_list%}
+                <div class="image-card" >
+                    <div class="image-overlay" >
+                        <div class="text">
+                            <h4>{{project[1]}}</h4>
+                        </div>
                     </div>
-                {% endfor %}
-            </div>
-            <a href="{{url_for('projects')}}" style="color: white; margin-top: 10px;">see more</a>
+                    <img src="{{project[4]}}" alt="project image">
+                </div>
+            {% endfor %}
         </div>
+        <a href="{{url_for('projects')}}" style="color: white; margin-top: 10px;position: relative;">see more</a>
+    </div>
+    <div class="column-right">
+        <a href="https://github.com/deni-cyber">
+        <h2>Github</h2>
+            <div class="icon">
+                <p class=""><img src="{{url_for('static', filename='/images/git.png')}}"></p>
+            </div>
+            deni-cyber
+        </a>
     </div>
 </div>
-<div class="infodiv">
-    <h3 style="text-align: center;">What Clients Have to Say</h3>
-    <div class="row">
-        <button class="display-left" onclick="plusDivs(-1)">&#10094;</button>
-            <div class="slidebox">
-                {% for testimonial in testimony_list%}
-                <div class="mySlides card" style="border: none;">
-                        <div class="text">"{{ testimonial[2]}}"</div>
-                        <p>-{{ testimonial[1]}}</p>
-                </div>
-                {%endfor%}
+
+
+<div class="container2">
+    <div class="column-left">
+        <h2>Testimonials</h2>
+        <div class="slide-show-card">
+            <div style="width: 10%;">
+                <button onclick="plusDivs(-1)">&#10094;</button>
             </div>
-        <button class="display-right" onclick="plusDivs(1)">&#10095;</button>
+            <div style="width: 80%;">
+                {% for testimonial in testimony_list %}
+                <div class="testimonial-slide">
+                    <div class="testimonial-content">
+                        "{{ testimonial[2] }}"
+                    </div>
+                    <p>-{{ testimonial[1] }}</p>
+                </div>
+                {% endfor %}
+            </div>
+            <div style="width: 10%;">
+                <button class="display-right" onclick="plusDivs(1)">&#10095;</button>
+            </div>
+        </div>
     </div>
-    <div class="formdiv">
+
+
+    <div class="column">
         <p>Leave a Comment or a Complement</p>
-        <form action="{{url_for('testimony')}}" method="POST" style="border: none; width: 100%;">
-            <p><label> name </label>
+        <form action="{{url_for('testimony')}}" method="POST">
+            <p><label> name </label><br>
                 <input type="text" name="name"></p>
             <p><label>message</label></p>
             <p><textarea name = "message" ></textarea></p>
             <input type = "submit" value = "send" />
         </form>
     </div>  
+    
 </div>
 
+<div class="container2" style="background-color: rgb(1, 32, 32);;">
+    <div class="column">
+        <h2>Social Links</h2>
 
-
-<div class="container">
-    <div class="card left-column">
-        <div>
-            <h2>write to me</h2>
-            <div class="formdiv">
-                <form action="{{url_for('message')}}" method="POST">
-                    <p><label> name </label>
-                        <input type="text" name="username"></p>
-                    <p><label>email</label>
-                        <input type="email" name="useremail"></p>
-                    <p><label> subject </label>
-                        <input type="text" name="subject"></p>
-                    <p><label>message</label></p>
-                    <p><textarea name = "message" ></textarea></p>
-                    <input type = "submit" value = "send" />
-                </form>
-            </div>  
+        <div class="image-grid card">
+            <div class="icon"><img src="{{url_for('static', filename='/images/ig.jpg')}}">
+                <p>@denitechnologies</p> 
+            </div>
+            <div class="icon"><img src="{{url_for('static', filename='/images/fb.png')}}">
+                <p>denitechnologies</p> 
+            </div>
+            <div class="icon"><img src="{{url_for('static', filename='/images/phone.jpg')}}">
+                <p>+2547 9161-0129</p> 
+            </div>
+            <div class="icon"><img src="{{url_for('static', filename='/images/x.png')}}">
+                <p>@denitechnologies</p> 
+            </div>
         </div>
     </div>
-    <div class="card right-column" style="margin: 0px; border: none; background-color: rgba(0, 128, 128, 0);">
-        <h2 style="text-align: center;">Social Links</h2>
-            <div class=" icon-card"><img src="{{url_for('static', filename='/images/ig.jpg')}}">@denitechnologies</div>
-            <div class=" icon-card"><img src="{{url_for('static', filename='/images/fb.png')}}">denitechnologies</div>
-            <div class=" icon-card"><img src="{{url_for('static', filename='/images/phone.jpg')}}">+2547 9161-0129</div>
-            <div class=" icon-card"><img src="{{url_for('static', filename='/images/x.png')}}">@denitechnologies</div>
-    </div>
 </div>
+
+
 
 
 

@@ -232,7 +232,7 @@ def modify_art():
 def message ():
     if request.method == "POST":
         if not request.form['username'] or not request.form['useremail'] or not request.form['message'] :
-            flash('Please enter all the fields', 'error')
+            flash('Please fill in all the fields', 'error')
 
         else:
             username=request.form['username']
@@ -242,7 +242,7 @@ def message ():
             message_part=Message(username,useremail,subject,message)
             message_part.add_to_db()
             flash(f'message has been sent, thanks for contacting Denis.')
-        return redirect(url_for('home'))
+        return redirect(url_for('contacts'))
 
 @app.route('/delete_message/', methods=['post','get'])
 def delete_message():
