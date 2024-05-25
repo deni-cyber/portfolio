@@ -1,0 +1,19 @@
+{% extends "index.html" %}
+
+{% block title %}Deni- Blogs{% endblock %}
+
+{% block content %}
+<div class="container2">
+    <div class="column">
+        <h1>Blogs</h1>
+        {% for blog in blog_list%}
+        <div class="column" style="text-align: justify; margin: 2%; background-color: rgb(1, 32, 32); padding: 2%;">
+            <p><small>{{blog[4]}}</small></p>
+            <h2>{{blog[1]}}</h2> <span><small>-by:</small>{{blog[2]}}</span><hr/>
+            <br>
+            <p>"{{blog[3]}}"</p>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock%}

@@ -1,0 +1,28 @@
+{% extends "index.html" %}
+
+{% block title %}Deni- projects{% endblock %}
+
+{% block content %}
+
+<div class="container2">
+    <div class="column">
+        <h2>Solo Projects</h2>
+
+        {% for project in projects_list%}
+        <div class="container2" style="margin: 1%; background-color: rgb(1, 32, 32);">
+            <div class="column-left">
+                <img src="{{project[4]}}" alt="project image" style="max-width: 400px;">
+            </div>
+            <div class="column-right" style="text-align: left; padding: 2%;">
+                <div >
+                    <h3>{{project[1]}}</h3>
+                    <p>{{project[3]}}</p>
+                    <p style="color: aqua;"><small>client-{{project[2]}}</small></p>
+                </div>
+                <a href="#" style="color: black;">Learn More</a>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>  
+{% endblock %}

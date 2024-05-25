@@ -1,0 +1,237 @@
+{% extends "index.html" %}
+
+{% block title %}Deni- admin{% endblock %}
+
+{% block content %}
+        <h3>Admin Panel</h3>
+        <hr/>
+    <!--this part is for forms-->	
+
+    <div  class="">
+        <h3 style="color: white; text-align: center;">add a project</h3>
+        <div class="formdiv">
+            <form action = "{{ url_for('add_project') }}" method = "POST" enctype=multipart/form-data>
+                Name<br>
+                <input type = "text" name = "name" /></br>
+                
+                Client<br>
+                <input type = "text" name = "client" /><br>
+                
+                Description<br>
+                <textarea name = "description" ></textarea><br>
+
+                <input type = "file" name = "file" /></br>
+
+                <input type = "submit" value = "submit" /><br>
+            </form>
+        </div>
+    </div>
+    <div  class="infodiv">
+        <h3 style="color: white; text-align: center;">add an Art or a Graphics Project</h3>
+        <div class="formdiv">
+            <form action = "{{ url_for('add_art') }}" method = "POST" enctype=multipart/form-data>
+                Name<br>
+                <input type = "text" name = "name" /></br>
+                
+                Category<br>
+                <select name="category" id="category">
+                    {% for art_category in art_category_list%}
+                        <option value={{art_category}}>{{art_category}}</option>
+                    {%endfor%}
+                </select>
+                Description<br>
+                <textarea name = "description" ></textarea><br>
+
+                <input type = "file" name = "file" /></br>
+
+                <input type = "submit" value = "submit" /><br>
+            </form>
+        </div>
+    </div>
+    <div  class="infodiv">
+        <h3 style="color: white; text-align: center;">create a new blog</h3>
+        <div class="formdiv">
+            <form action = "{{ url_for('add_blog')}}" method = "POST">
+                title<br>
+                <input type = "text" name = "title" /></br>
+                
+                outhor<br>
+                <input type = "text" name = "outhor" /><br>
+                
+                Description<br>
+                <textarea name = "description" ></textarea><br>
+                <input type = "submit" value = "submit" /><br>
+            </form>
+        </div>
+    </div>
+
+
+    <!--this section is for the tables-->
+
+
+    <!--table for projects-->
+
+    <div class="infodiv">
+        <h3 style="color: white; text-align: center;">Uploaded projects</h3>
+
+        <div>
+                    
+            <table>
+                <tr>
+                    <th>select</th>
+                    <th>id</th>
+                    <th>name</th>
+                    <th>description</th>
+                    <th>client</th>
+                    <th>action</th>
+                </tr>
+                
+                {% for project in projects_list%}
+                <tr>
+                    <form action="{{url_for('modify')}}" method="POST">   
+                    <td><input type="checkbox" name="project", value="{{project[0]}} {{project[5]}}"></td>
+                    <td>{{project[0]}}</td>
+                    <td><img src="{{project[4]}}" alt="project image" style="max-width: 50px; height: auto;"><p>{{project[1]}}</p></td>
+                    <td>{{project[3]}}</td>
+                    <td>{{project[2]}}</td>
+                    <td><input type="submit" value="delete" ></td>
+                    </form>  
+                </tr>
+                {% endfor %}
+                
+                
+            </table>
+            
+
+        </div>
+    </div>
+
+    <!--table for messages-->
+    <div class="infodiv">
+        <h3 style="color: white; text-align: center;">received messages</h3>
+        <div>               
+            <table>
+                <tr>
+                    <th>select</th>
+                    <th>id</th>
+                    <th>visitor name</th>
+                    <th>email address</th>
+                    <th>subject</th>
+                    <th>message</th>
+                    <th>time received</th>
+                    <th>action</th>
+                </tr>
+                {% for message in messages_list%}
+                <tr>
+                    <form action="{{url_for('delete_message')}}" method="POST">
+                        <td><input type="checkbox" name="message_id", value="{{message[0]}}"></td>
+                        <td>{{message[0]}}</td>
+                        <td>{{message[1]}}</td>
+                        <td>{{message[2]}}</td>
+                        <td>{{message[3]}}</td>
+                        <td>{{message[4]}}</td>
+                        <td>{{message[5]}}</td>
+                        <td><input type="submit" value="delete"></td>
+                    </form>
+                </tr>
+                {% endfor %}
+            </table>                    
+        </div>
+    </div>
+
+    <!--table for comments-->
+    <div class="infodiv">
+        <h3 style="color: white; text-align: center;">received comments</h3>
+        <div>               
+            <table>
+                <tr>
+                    <th>select</th>
+                    <th>id</th>
+                    <th>name</th>
+                    <th>message</th>
+                    <th>time received</th>
+                    <th>action</th>
+                </tr>
+                {% for testimony in testimony_list%}
+                <tr>
+                    <form action="{{url_for('delete_testimony')}}" method="POST">
+                        <td><input type="checkbox" name="testimony_id", value="{{testimony[0]}}"></td>
+                        <td>{{testimony[0]}}</td>
+                        <td>{{testimony[1]}}</td>
+                        <td>{{testimony[2]}}</td>
+                        <td>{{testimony[3]}}</td>
+                        <td><input type="submit" value="delete"></td>
+                    </form>
+                </tr>
+                {% endfor %}
+            </table>                    
+        </div>
+    </div>
+
+    <!--table for blogs-->
+    <div class="infodiv">
+        <h3 style="color: white; text-align: center;">blogs</h3>
+        <div>               
+            <table>
+                <tr>
+                    <th>select</th>
+                    <th>id</th>
+                    <th>title</th>
+                    <th>outhor</th>
+                    <th>message</th>
+                    <th>time posted</th>
+                    <th>action</th>
+                </tr>
+                {% for blog in blog_list%}
+                <tr>
+                    <form action="{{url_for('delete_blog')}}" method="POST">
+                        <td><input type="checkbox" name="blog_id", value="{{blog[0]}}"></td>
+                        <td>{{blog[0]}}</td>
+                        <td>{{blog[1]}}</td>
+                        <td>{{blog[2]}}</td>
+                        <td>{{blog[3]}}</td>
+                        <td>{{blog[4]}}</td>
+                        <td><input type="submit" value="delete"></td>
+                    </form>
+                </tr>
+                {% endfor %}
+            </table>                    
+        </div>
+    </div>
+
+    <!--table for artworks-->
+    <div class="infodiv">
+        <h3 style="color: white; text-align: center;">Uploaded Artwork</h3>
+
+        <div>
+                    
+            <table>
+                <tr>
+                    <th>select</th>
+                    <th>id</th>
+                    <th>name</th>
+                    <th>description</th>
+                    <th>category</th>
+                    <th>action</th>
+                </tr>
+                
+                {% for art in art_list%}
+                <tr>
+                    <form action="{{url_for('modify_art')}}" method="POST">   
+                    <td><input type="checkbox" name="art", value="{{art[0]}} {{art[5]}}"></td>
+                    <td>{{art[0]}}</td>
+                    <td><img src="{{art[4]}}" alt="project image" style="max-width: 50px; height: auto;"><p>{{art[1]}}</p></td>
+                    <td>{{art[3]}}</td>
+                    <td>{{art[2]}}</td>
+                    <td><input type="submit" value="delete" ></td>
+                    </form>  
+                </tr>
+                {% endfor %}
+                
+                
+            </table>
+            
+
+        </div>
+    </div>
+{% endblock %}

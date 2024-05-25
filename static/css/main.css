@@ -1,0 +1,189 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+/* this file is dedicated for styling the landing page and the body*/
+body {
+    padding: 0px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: small;
+    text-align: center;
+  }
+
+h1{
+  color: white;
+}
+
+h2{
+  color: aqua;
+}
+h3{
+  color: black;
+  background-color: white;
+}
+a{
+  color: white;
+}
+
+
+table{
+  display: flex;
+  width: 100%;
+}
+
+
+
+.container2{
+  display: flex;
+  align-items: stretch;
+  justify-content: space-around;
+  flex-direction: column;
+  overflow: hidden;
+  text-align: center;
+  color: white;
+  padding-top: 4%;
+  background-color: black;
+}
+
+.column{
+  display: flex; 
+  flex-direction: column;
+}
+
+.card{
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  text-align: center;
+  border-radius: 4px;
+  margin: 1px;
+}
+
+.icon{
+  border-radius: 4px;
+  padding: 4px;
+  text-align: center;
+}
+.icon img{
+  max-width: 40px;
+  border-radius: 2px;
+}
+
+
+.column-left{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.image-grid{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  flex-direction: column;
+  border-radius: 8px;
+  row-gap: 0px;
+  column-gap: 0px;
+  padding: 2px;
+}
+.image-card{
+  width: 100%;
+  height: 100%;
+  border-radius: 8px;
+}
+.image-overlay{
+  position: absolute;
+  width: 60%;
+  opacity: 0;
+  transition: .5s ease;
+  background-color: rgb(1, 32, 32);;
+  text-align: left;
+  padding: 4px;
+}
+.text {
+  color: white;
+  text-overflow: scroll;
+}
+.image-card:hover{
+  .image-overlay{
+    opacity: 1;
+    }
+}
+.image-card img{
+  width: 100%;
+  height: 100%;
+  border-radius: 4px;
+}
+.column-right{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  flex-direction: column;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.slide-show-card{
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  
+  align-content: stretch;
+}
+
+.testimonial-slide {
+  display: none;
+}
+.testimonial-slide.active {
+  display: block;
+  height: 100%;
+}
+.testimonial-content {
+  text-align: center;
+}
+ 
+
+
+  /* Responsive Layout */
+  @media (min-width: 768px) {
+    body{
+      padding: 0px;
+      font-size: medium;
+        }
+    .container{
+      flex-direction: row;
+    }
+    .container2{
+      flex-direction: row;
+      padding: 8%;
+    }
+    .column-left {
+      width: 50%;
+      flex-direction: column;
+    }
+    .column-right{
+      width: 50%;
+    }
+    .image-grid{
+      width: 80%;
+      flex-wrap: wrap;
+      flex-direction: row;
+    }
+    .image-card{
+      width: 40%;
+      height: 40%;
+      border-radius: 8px;
+      margin: 4px;
+    }
+    .image-overlay{
+      width: 10%;
+    }
+  }
+  

@@ -1,0 +1,19 @@
+{% extends "index.html" %}
+
+{% block title %}Deni- landing page{% endblock %}
+
+{% block content %}
+<div class="container2" style="align-items: flex-start;">
+    <div class="image-grid" style="background-color:black; width: 100%; align-items: flex-start;">
+        {% for art in art_list%}
+                <div class=" image-card" style=" width: 100%;">
+                    <div class="image-overlay" style="opacity: 1;">
+                        <p>{{art[1]}}</p>
+                        <p>{{art[3]}}</p>
+                    </div>
+                    <img src="{{art[4]}}" alt="{{art[4]}}" style="max-width: 400px;">
+                </div>
+        {% endfor %}
+    </div> 
+</div>
+{% endblock%}

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<html>
+    
+    <head>
+        <title>{% block title %}Deni-Portfolio{% endblock %}</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/main.css') }}" >
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/header.css') }}" >
+
+
+    </head>
+    <body>
+        <nav class="sidebar">
+            <lu>
+                <li onclick=hideSidebar()><a href="#"> <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg></a></li>
+                <li><a href="{{ url_for('home') }}">Home</a></li>
+                <li><a href="{{ url_for('projects') }}">Projects</a></li>
+                <li><a href="{{ url_for('art')}}">Art and Graphics</a></li>
+                <li><a href="{{ url_for('blog') }}">Blog</a></li>
+                <li><a href="{{ url_for('contacts') }}">Contact</a></li>
+                <li><a href="{{ url_for('about') }}">About</a></li>
+            </lu>
+        </nav>
+        <nav>
+            <div class="logo">
+                <img src="{{url_for('static', filename='/images/dtlogo2.png')}}" id="headerlogo" style="border-radius: 3px;">
+            </div>
+            <lu>
+                
+                <li class="hideonmobile"><a href="{{ url_for('home') }}">Home</a></li>
+                <li class="hideonmobile"><a href="{{ url_for('projects') }}">Projects</a></li>
+                <li class="hideonmobile"><a href="{{ url_for('art')}}">Graphics</a></li>
+                <li class="hideonmobile"><a href="{{ url_for('blog') }}">Blog</a></li>
+                <li class="hideonmobile"><a href="{{ url_for('contacts') }}">Contact</a></li>
+                <li class="hideonmobile"><a href="{{ url_for('about') }}">About</a></li>
+                <li class="menubutton" onclick=showSidebar() ><a href="#" ><svg xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 -960 960 960" width="20px" fill="#e8eaed"><path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"/></svg></a></li>
+            </lu>
+        </nav>
+        <div style="color: white; background-color: orangered;text-align: center;">
+            {%- for message in get_flashed_messages() %}
+                {{ message }}|
+            {%- endfor %}
+        </div>
+        {% block content %}
+
+        {% endblock %}
+<hr/>
+        <div class="container2">
+            <div>
+                <strong>contact</strong>
+                <lu>
+                    <li>+2547 9161 0129</li>
+                    <li>@DK_Githinji</li>
+                    <div>denitechnologies@gmain.com</div>
+                </lu>
+            </div>
+
+            <div>
+                <h3>newsletter</h3>
+            </div>
+        </div>
+    </body>
+    <script>
+         // Get all links in the header
+        var links = document.querySelectorAll('nav a');
+            
+            // Loop through each link
+            links.forEach(function(link) {
+                // Check if the link's href matches the current URL
+                if (link.href === window.location.href) {
+                    // Add 'active' class to the link
+                    link.classList.add('active');
+                }
+            });
+
+            function showSidebar(){
+                const sidebar=document.querySelector('.sidebar');
+                sidebar.style.display="flex";
+            }
+            function hideSidebar(){
+                const sidebar=document.querySelector('.sidebar');
+                sidebar.style.display="none";
+            }
+
+            
+            var slideIndex = 1;
+            var slides = document.getElementsByClassName("testimonial-slide");
+
+            function showSlides(n) {
+                if (n > slides.length) { slideIndex = 1; }
+                if (n < 1) { slideIndex = slides.length; }
+                for (var i = 0; i < slides.length; i++) {
+                    slides[i].classList.remove("active");
+                }
+                slides[slideIndex - 1].classList.add("active");
+            }
+
+            function plusDivs(n) {
+                showSlides(slideIndex += n);
+            }
+
+            // Initial display
+            showSlides(slideIndex);
+    </script>
+</html>
