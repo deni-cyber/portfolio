@@ -41,7 +41,7 @@ nav li:first-child{
 .sidebar{
   position: fixed;
   top: 0;
-  right: 10%;
+  right: 0%;
   width: 250px;
   z-index: 999;
   background-color: rgba(47, 79, 79, 0.418);

@@ -4,22 +4,17 @@
 
 {% block content %}
 
-<div class="container2" style="padding: 0%;">
+<div class="container2" style="padding: 0px;">
     <div class="column" style="margin: 0px;">
-        <h2>Solo Projects</h2>
-
         {% for project in projects_list%}
         <div class="container2 project_container">
             <div class="column-left image_holder" >
                 <img src="{{project[4]}}" alt="project image">
             </div>
             <div class="column-right text_holder">
-                <div >
                     <h3>{{project[1]}}</h3>
-
                     <p>{{project[3]}}</p>
                     <p style="color: aqua;"><small>client-{{project[2]}}</small></p>
-                </div>
                 <a href="#" style="color: black;">Learn More</a>
             </div>
         </div>

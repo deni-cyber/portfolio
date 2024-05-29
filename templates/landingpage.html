@@ -7,7 +7,7 @@
     <div class="container2" style="background-color: rgb(1, 32, 32);">
         <div>
             <h2>My name is D.K Githinji.</h2>
-            <h1>
+            <h1 class="intro">
                  I am an Electrical and Electronic Engineer.
             </h1>
         </div>
@@ -28,12 +28,48 @@
         <div class="column">
             <h2>skills</h2>
             <div class="card">
-                <div class="icon"><img src="{{url_for('static', filename='/images/c++.png')}}"></div>
-                <div class="icon"><img src="{{url_for('static', filename='/images/python.jpg')}}"></div>
-                <div class="icon"><img src="{{url_for('static', filename='/images/dj.png')}}"></div>
-                <div class="icon"><img src="{{url_for('static', filename='/images/html.png')}}"></div>
-                <div class="icon"><img src="{{url_for('static', filename='/images/flask.png')}}"></div>
-                <div class="icon"><img src="{{url_for('static', filename='/images/c.png')}}"></div>
+                <div class="icon image-card" style="width: 100px;height: auto;"><img src="{{url_for('static', filename='/images/c++.png')}}">
+                    <div class="image-overlay" style="width: 10%; font-size: x-small;">
+                        <div class="text">
+                            <h4>C++</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="icon image-card" style="width: 100px;height: auto;"><img src="{{url_for('static', filename='/images/python.jpg')}}">
+                    <div class="image-overlay" style="width: 10%; font-size: x-small;">
+                        <div class="text">
+                            <h4>Python</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="icon image-card" style="width: 100px;height: auto;"><img src="{{url_for('static', filename='/images/dj.png')}}">
+                    <div class="image-overlay" style="width: 10%; font-size: x-small;">
+                        <div class="text">
+                            <h4>Django</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="icon image-card" style="width: 100px;height: auto;"><img src="{{url_for('static', filename='/images/html.png')}}">
+                    <div class="image-overlay" style="width: 10%; font-size: x-small;">
+                        <div class="text">
+                            <h4>Html</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="icon image-card" style="width: 100px;height: auto;"><img src="{{url_for('static', filename='/images/flask.png')}}">
+                    <div class="image-overlay" style="width: 10%; font-size: x-small;">
+                        <div class="text">
+                            <h4>Flask</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="image-card icon" style="width: 100px; height: auto;"><img src="{{url_for('static', filename='/images/c.png')}}">
+                    <div class="image-overlay" style="width: 10%; font-size: x-small;">
+                        <div class="text">
+                            <h4>C</h4>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

@@ -3,11 +3,11 @@
 {% block title %}Deni- landing page{% endblock %}
 
 {% block content %}
-<div class="container2" style="align-items: flex-start;">
+<div class="column" style="align-items: flex-start;">
     <div class="image-grid" style="background-color:black; width: 100%; align-items: flex-start;">
         {% for art in art_list%}
-                <div class=" image-card" style=" width: 100%;">
-                    <div class="image-overlay" style="opacity: 1;">
+                <div class=" image-card" style=" width: 100%; background-color: rgb(1, 32, 32);" >
+                    <div class="image-overlay" style="border-right: solid aqua; background-color: black;">
                         <p>{{art[1]}}</p>
                         <p>{{art[3]}}</p>
                     </div>
